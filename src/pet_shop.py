@@ -31,7 +31,7 @@ def find_pet_by_name(pet_shop_dict, name_to_search):
     for pet in pet_shop_dict["pets"]:
         if pet["name"] == name_to_search:
             return(pet)
-    return None
+    # return "pet not found"
 
 def remove_pet_by_name(pet_shop_dict, pet_name_to_delete):
     # remove from the list of pets the pet whose name matches pet_name_to_delete
@@ -62,7 +62,7 @@ def customer_can_afford_pet(customer, pet):
 
 
 def sell_pet_to_customer(pet_shop_dict, pet, customer):
-    if customer_can_afford_pet(customer, pet):
+    if pet != None and customer_can_afford_pet(customer, pet):
         add_pet_to_customer(customer, pet)
         remove_customer_cash(customer, pet["price"])
         remove_pet_by_name(pet_shop_dict, pet["name"])
